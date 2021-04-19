@@ -1,18 +1,12 @@
-import colors from "colors"
+import colors from "colors";
 
 export function errorHandler(err, req, res, next) {
-    if(!err) {
-        return next();
+    try {
+        next()
+    } catch (e) {
+        res.status(500);
+        res.render('error', { error: e.message });
     }
-    res.locals.message = err.message;
-    res.status(err.status || 500);
-    res.render('error');
-    // try {
-    //     next()
-    // } catch (e) {
-    //     res.status(500);
-    //     res.render('error', { error: e.message });
-    // }
 }
 
 export function requestTime(req, res, next) {
