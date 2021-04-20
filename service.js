@@ -13,7 +13,7 @@ export function fetchWeatherByCity(cityName) {
         })
 }
 
-export function fetchWeatherByCoordinate(cityName) {
+export function fetchWeatherByCoordinate(lat, lon) {
     return fetch(url + "&lat=" + lat + "&lon=" + lon)
         .then( (res) => {
             const data = res.json();
