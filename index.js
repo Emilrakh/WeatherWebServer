@@ -1,5 +1,5 @@
 import express from "express";
-import {requestTime, logger, errorHandler} from "./middlewares.js";
+// import {requestTime, logger, errorHandler} from "./middlewares.js";
 import serverRoutes from "./routers.js";
 import cors from "cors";
 
@@ -17,19 +17,15 @@ app.use((req, res, next) => {
     next();
 });
 
-app.listen(CORS_PORT, function () {
-    console.log(`CORS-enabled web server listening on port ${CORS_PORT}`);
-})
-
 // mongoose.set("useCreateIndex", true);
 //
 // let db = mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false})
 //
 // initSchema(db);
 
-app.use(errorHandler);
-app.use(requestTime);
-app.use(logger);
+// app.use(errorHandler);
+// app.use(requestTime);
+// app.use(logger);
 
 app.use(serverRoutes);
 
