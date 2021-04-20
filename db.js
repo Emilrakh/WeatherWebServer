@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
-
-export function initSchema(mongoose) {
-    let favouriteCity = createSchema(mongoose);
-}
-
-function createSchema(mongoose) {
-    const favouriteCity = new mongoose.Schema({cityName: {type: "string", unique: true}});
-    return mongoose.model("cities", favouriteCity);
-}
+// import {Schema, model} from "mongoose";
+//
+// export function initSchema(mongoose) {
+//     let favouriteCity = createSchema(mongoose);
+// }
+//
+// function createSchema(mongoose) {
+//     let favouriteCity = new Schema({cityName: {type: "string", unique: true}});
+//     return model("cities", favouriteCity);
+// }

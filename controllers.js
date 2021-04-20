@@ -52,7 +52,7 @@ export async function postFavouriteCity(req, res) {
     }
 }
 
-export function deleteFavouriteCity(req, res) {
+export async function deleteFavouriteCity(req, res) {
     const cityName = req.query.cityName;
     const removeCity = req.findOneAndRemove({cityName: cityName});
 
