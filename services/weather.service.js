@@ -3,8 +3,8 @@ import fetch from "node-fetch";
 
 dotenv.config();
 
-const url = process.env.API_URL || secret.API_URL
-const key = process.env.API_KEY || secret.API_KEY
+const url = process.env.API_URL || secret.API_URL;
+const key = process.env.API_KEY || secret.API_KEY;
 const full_url = url + "&appid=" + key;
 
 export function fetchWeatherByCity(cityName) {
