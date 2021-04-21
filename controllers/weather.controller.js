@@ -1,4 +1,4 @@
-import {fetchWeatherByCoordinate, fetchWeatherByCity} from "../service.js";
+import {fetchWeatherByCoordinate, fetchWeatherByCity} from "../services/weather.service.js";
 
 export async function getWeatherByCity(req, res) {
     const cityName = req.query.cityName;

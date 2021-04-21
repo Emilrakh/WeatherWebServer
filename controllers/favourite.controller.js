@@ -1,11 +1,9 @@
-import {fetchWeatherByCoordinate} from "../service.js";
+import {fetchWeatherByCoordinate} from "../services/weather.service.js";
+import {addFavourite, deleteFavourite, findFavourites} from "../services/favourite.service.js";
 
-export function getFavouriteCity(req, res) {
-    let cities = req.find().exec();
-    let citiesArray = [];
-
-    cities.forEach(info => citiesArray.push(info.cityName));
-    res.send({favouriteCities: citiesArray})
+export async function getFavouriteCity(req, res) {
+    let cities = await findFavourites();
+    res.send(cities);
 }
 
 export async function postFavouriteCity(req, res) {
@@ -13,11 +11,10 @@ export async function postFavouriteCity(req, res) {
     const weatherData = await fetchWeatherByCoordinate(cityName);
 
     if (weatherData !== null) {
-        let exists = req.findOne({cityName: cityName.name}).exec();
+        let exists = addFavourite(cityName);
 
         if (exists === null) {
-            new req({cityName: cityName.name}).save();
-            res.status(201).send(weatherData);
+            res.status(201).send();
         } else {
             res.status(409).send();
         }
@@ -29,7 +26,8 @@ export async function postFavouriteCity(req, res) {
 
 export async function deleteFavouriteCity(req, res) {
     const cityName = req.query.cityName;
-    const removeCity = req.findOneAndRemove({cityName: cityName});
+    console.log(cityName);
+    const removeCity = deleteFavourite(cityName);
 
     if (removeCity !== null) {
         res.status(204).send();
