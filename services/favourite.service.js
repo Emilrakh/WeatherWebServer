@@ -12,8 +12,8 @@ export async function addFavourite(cityName) {
     // return citiesArray;
 }
 
-export async function deleteFavourite(cityName) {
-    const cities = await favouriteCities.findOneAndDelete(cityName);
+export async function deleteFavourite(name) {
+    const cities = await favouriteCities.findOneAndDelete({cityName: name});
     return cities;
 }
 

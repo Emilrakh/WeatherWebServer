@@ -26,7 +26,6 @@ export async function postFavouriteCity(req, res) {
 
 export async function deleteFavouriteCity(req, res) {
     const cityName = req.query.cityName;
-    console.log(cityName);
     const removeCity = deleteFavourite(cityName);
 
     if (removeCity !== null) {
