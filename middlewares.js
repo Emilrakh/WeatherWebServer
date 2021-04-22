@@ -1,11 +1,5 @@
 import colors from "colors";
 
-// export function corsOn(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// }
-
 export function errorHandler(err, req, res, next) {
     try {
         next()
