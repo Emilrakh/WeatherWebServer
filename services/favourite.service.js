@@ -1,4 +1,3 @@
-
 import cityModel from "../model.js";
 
 const favouriteCities = cityModel;
@@ -8,7 +7,7 @@ export async function addFavourite(cityName) {
     if (!city) return await favouriteCities.create({cityName});
     // const city = await favouriteCities.findOne({cityName}).exec();
     // let citiesArray = [];
-    // cities.forEach(info => citiesArray.push(info.cityName));
+    // city.forEach(info => citiesArray.push(info.cityName));
     // return citiesArray;
 }
 

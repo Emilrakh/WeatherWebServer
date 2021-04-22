@@ -3,7 +3,9 @@ import {addFavourite, deleteFavourite, findFavourites} from "../services/favouri
 
 export async function getFavouriteCity(req, res) {
     let cities = await findFavourites();
-    res.send(cities);
+    let citiesArray = [];
+    cities.forEach((res) => {citiesArray.push(res.cityName)});
+    res.json({data:citiesArray});
 }
 
 export async function postFavouriteCity(req, res) {

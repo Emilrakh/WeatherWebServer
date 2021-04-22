@@ -12,14 +12,14 @@ const app = express();
 
 app.use(cors());
 
-app.listen(CORS_PORT, function () {
-    console.log(`CORS-enabled web server listening on port ${CORS_PORT}`)
-})
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", process.env.ORIGIN || "*");
-    next();
-});
+// app.listen(CORS_PORT, function () {
+//     console.log(`CORS-enabled web server listening on port ${CORS_PORT}`)
+// })
+//
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", process.env.ORIGIN || "*");
+//     next();
+// });
 
 async function mongoConnect() {
     try {
