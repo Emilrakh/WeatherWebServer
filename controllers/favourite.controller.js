@@ -1,4 +1,4 @@
-import {fetchWeatherByCoordinate} from "../services/weather.service.js";
+import {fetchWeatherByCity} from "../services/weather.service.js";
 import {addFavourite, deleteFavourite, findFavourites} from "../services/favourite.service.js";
 
 export async function getFavouriteCity(req, res) {
@@ -8,16 +8,11 @@ export async function getFavouriteCity(req, res) {
 
 export async function postFavouriteCity(req, res) {
     const cityName = req.query.cityName;
-    const weatherData = await fetchWeatherByCoordinate(cityName);
+    const weatherData = await fetchWeatherByCity(cityName);
 
     if (weatherData !== null) {
-        let exists = addFavourite(cityName);
-
-        if (exists === null) {
-            res.status(201).send();
-        } else {
-            res.status(409).send();
-        }
+        addFavourite(cityName);
+        res.status(201).send();
     } else {
         res.status(404).send();
         console.log("Error get weather by City");
