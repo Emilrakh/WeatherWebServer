@@ -7,7 +7,7 @@ export async function getWeatherByCity(req, res) {
     if (weatherData) {
         res.status(200).send(weatherData);
     } else {
-        res.status(404).send();
+        res.status(404).json({message:"Error get weather by City"});
         console.log("Error get weather by City");
     }
 }
@@ -19,7 +19,7 @@ export async function getWeatherByCoordinate(req, res) {
     if (weatherData) {
         res.status(200).send(weatherData);
     } else {
-        res.status(404).send();
+        res.status(404).json({message:"Error get weather by Coordinate"});
         console.log("Error get weather by Coordinate");
     }
 }

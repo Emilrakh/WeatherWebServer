@@ -8,9 +8,9 @@ export async function addFavourite(cityName) {
     let trueCityName = weatherData.name;
 
     if (weatherData.cod >= 200 && 300 > weatherData.cod) {
-        const city = favouriteCities.findOne({cityName:trueCityName});
+        const city = await favouriteCities.findOne({cityName:trueCityName});
 
-        if (!city) {
+           if (!city) {
             await favouriteCities.create({cityName:trueCityName});
             return weatherData;
         } else {

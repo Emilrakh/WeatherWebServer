@@ -13,7 +13,7 @@ export async function postFavouriteCity(req, res) {
         let data = await addFavourite(cityName)
         res.status(200).json(data);
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).json({message:err.message});
     }
 }
 
@@ -25,6 +25,6 @@ export function deleteFavouriteCity(req, res) {
                 res.status(200);
             });
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).json({message:err.message});
     }
 }
