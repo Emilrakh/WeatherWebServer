@@ -27,12 +27,13 @@ async function mongoConnect() {
 
 mongoConnect().catch(console.dir);
 
-app.use(errorHandler);
-app.use(requestTime);
-app.use(logger);
-
 app.use(weatherRouters);
 app.use(favouriteRouters);
+
+app.use(requestTime);
+app.use(logger);
+app.use(errorHandler);
+
 
 app.listen(HOST_PORT, () => {
     console.log(`Server has been started on port ${HOST_PORT}`);

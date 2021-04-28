@@ -1,8 +1,8 @@
 import {fetchWeatherByCoordinate, fetchWeatherByCity} from "../services/weather.service.js";
 
 export async function getWeatherByCity(req, res) {
-    const cityName = req.query.cityName;
-    const weatherData = await fetchWeatherByCity(cityName);
+    let {cityName} = req.query;
+    let weatherData = await fetchWeatherByCity(cityName);
 
     if (weatherData) {
         res.status(200).send(weatherData);
@@ -13,9 +13,8 @@ export async function getWeatherByCity(req, res) {
 }
 
 export async function getWeatherByCoordinate(req, res) {
-    const lat = req.query.lat;
-    const lon = req.query.lon;
-    const weatherData = await fetchWeatherByCoordinate(lat, lon);
+    let {lat, lon} = req.query;
+    let weatherData = await fetchWeatherByCoordinate(lat, lon);
 
     if (weatherData) {
         res.status(200).send(weatherData);
@@ -24,4 +23,3 @@ export async function getWeatherByCoordinate(req, res) {
         console.log("Error get weather by Coordinate");
     }
 }
-
