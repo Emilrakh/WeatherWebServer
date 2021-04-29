@@ -5,7 +5,7 @@ const favouriteCities = cityModel;
 
 export async function addFavourite(cityName) {
     let weatherData = await fetchWeatherByCity(cityName);
-    let trueCityName = weatherData.name;
+    let trueCityName = weatherData.name.replace(/[^a-z]/gi, '');
 
     if (weatherData.cod >= 200 && 300 > weatherData.cod) {
         const city = await favouriteCities.findOne({cityName:trueCityName});
