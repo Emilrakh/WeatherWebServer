@@ -10,7 +10,7 @@ export function getFavouriteCity(req, res) {
 export async function postFavouriteCity(req, res) {
     const {cityName} = req.query;
     try {
-        let data = await addFavourite(cityName)
+        let data = await addFavourite(cityName);
         res.status(200).json(data);
     } catch (err) {
         res.status(400).json({message:err.message});
